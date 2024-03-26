@@ -7,21 +7,20 @@ function MyForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
   
-    // Asumiendo que tienes variables para cada uno de los valores a enviar
     const formData = {
-      country_id: '1', // Deberías reemplazar esto con el valor correspondiente
-      document_type_id: '1', // Deberías reemplazar esto con el valor correspondiente
-      document_number: '78436224', // Deberías reemplazar esto con el valor correspondiente
-      password: 'devdatep', // Deberías reemplazar esto con el valor correspondiente
-      recaptcha: recaptchaToken // Asumiendo que recaptchaToken es una variable que contiene tu token
+      country_id: '1', 
+      document_type_id: '1', 
+      document_number: '78436224', 
+      password: 'devdatep', 
+      recaptcha: recaptchaToken 
     };
   
-    fetch("http://127.0.0.1:8000/login", { // Asegúrate de reemplazar '/login' con tu endpoint específico
+    fetch("http://127.0.0.1:8000/login", { 
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(formData) // Convertimos el objeto de los datos del formulario a JSON
+      body: JSON.stringify(formData)
     })
     .then(response => response.json())
     .then(data => {
@@ -35,7 +34,6 @@ function MyForm() {
   
   return (
     <form onSubmit={handleSubmit}>
-      {/* Tus campos de formulario aquí */}
       <ReCAPTCHA
         sitekey="6LfcAZcpAAAAAPvWZJlmW0GDEePjm8lT8pRbHiLc"
         onChange={(token) => setRecaptchaToken(token)}
